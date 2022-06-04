@@ -6,7 +6,7 @@ function signIn({ providers }) {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center">
         <img
           className="h-28 w-80"
           src="https://links.papareact.com/ocw"
@@ -19,7 +19,7 @@ function signIn({ providers }) {
           {Object.values(providers).map((provider) => (
             <div key={provider.name}>
               <button
-                className="bg-blue-500 text-white font-bold p-3 rounded-lg hover:italic   text-lg"
+                className="bg-blue-500 text-white font-bold p-3 rounded-lg text-lg"
                 onClick={() =>
                   SignInProvider(provider.id, { callbackUrl: "/" })
                 }
@@ -37,7 +37,9 @@ function signIn({ providers }) {
 export async function getServerSideProps(context) {
   const providers = await getProviders(context);
   return {
-    props: { providers },
+    props: {
+      providers,
+    },
   };
 }
 

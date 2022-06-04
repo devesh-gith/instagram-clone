@@ -10,9 +10,7 @@ function Posts() {
     () =>
       onSnapshot(
         query(collection(db, "posts"), orderBy("timestamp", "desc")),
-        (snapshot) => {
-          setPosts(snapshot.docs);
-        }
+        (snapshot) => setPosts(snapshot.docs)
       ),
     [db]
   );
