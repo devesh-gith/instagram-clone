@@ -9,7 +9,7 @@ import {
   MenuIcon,
 } from "@heroicons/react/outline";
 import { HomeIcon } from "@heroicons/react/solid";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atom/modalAtom";
 import { useRouter } from "next/router";
@@ -71,6 +71,7 @@ function Header() {
                 src={session.user?.image}
                 alt=""
                 className="h-10 cursor-pointer rounded-full"
+                onClick={signOut}
               />
             </>
           ) : (
